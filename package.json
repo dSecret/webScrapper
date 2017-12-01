@@ -1,0 +1,11 @@
+{
+  "name": "webscrap",
+  "version": "1.0.0",
+  "description": "\"A simple web scrapper\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "\"dSecret\"",
+  "license": "MIT"
+}
