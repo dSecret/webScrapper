@@ -14,23 +14,33 @@ request(url, function(error, response, html){
 
     var name,field
     var json = { name:"",field:""};
+    var Faculties=[]
+    var fields=[]
 
-    $('.computersci a').filter(function(){
+    $('.computersci').filter(function(){
         var data = $(this);
-        name = data.text();            
+        // var node=data.clone().children().remove().end().text();      
+        // var node =data.find('b:nth-of-type(2)').nextUntil(data.find('b:nth-of-type(3)')).text()  
+        // Faculties.push(data.text())
+        // json.name = name;
 
-        json.name = name;
+        // var emails=$(foo).nextUntil(bar,node).text();
+        node=data.children('a:first-of-type').text();
+        fields.push(node)
+
     })
+
+    console.log(fields)
 }
 
 
-fs.writeFile('output1.json', JSON.stringify(json, null, 4), function(err){
+// fs.writeFile('output1.json', JSON.stringify(json, null, 4), function(err){
 
-    console.log('File successfully written! - Check your project directory for the output.json file');
+//     console.log('File successfully written! - Check your project directory for the output.json file');
 
-})
+// })
 
-res.send('Check your console!')
+res.send(JSON.stringify(`${fields.length} \n ${fields}`))
 
     }) ;
 })
